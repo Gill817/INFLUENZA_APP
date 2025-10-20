@@ -5,29 +5,29 @@ import spacy
 
 st.title("Monitoring Influenza Activity Worldwide")
 
-# Load the dataset
+
 df = pd.read_csv(r'C:/Users/priya/Downloads/VIW_FNT.csv')
 min_year = df['ISO_YEAR'].min()
 
-# Load an NLP model
+
 nlp = spacy.load("en_core_web_sm")
 
-# Function to answer questions
+
 def answer_question(question, dataset):
-    # Process the question using NLP
+    
     doc = nlp(question)
 
-    # Identify keywords or entities in the question
+    
     keywords = [token.text for token in doc if token.is_alpha]
 
-    # Match keywords to dataset columns
+    
     relevant_columns = [col for col in dataset.columns if any(keyword.lower() in col.lower() for keyword in keywords)]
 
-    # Retrieve data from the dataset based on the relevant columns
+   
     answers = dataset[relevant_columns]
 
-    # Generate a response
-    response = answers.head().to_string(index=False)  # You can customize this based on your dataset structure
+    
+    response = answers.head().to_string(index=False) 
 
     return response
 
@@ -86,9 +86,10 @@ with col2:
         fig = px.pie(top_20_countries, names='COUNTRY_AREA_TERRITORY', values=selected_variant, title=f'Top 20 Countries for Influenza {selected_variant} in {selected_continent} ({selected_year})')
         st.plotly_chart(fig)
 
-# User's question input
+
 user_question = st.text_input("Ask a question about the dataset:")
 if user_question:
     answer = answer_question(user_question, df)
     st.write("Answer:")
     st.write(answer)
+
