@@ -52,5 +52,4 @@ you can run the project directly:
 
 https://influenza-analysis.streamlit.app/ 
 
-## 📂 Project Structure
 
