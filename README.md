@@ -52,4 +52,8 @@ you can run the project directly:
 
 https://influenza-analysis.streamlit.app/ 
 
+---
+Here is the preview:
+<img width="1920" height="888" alt="Screenshot (129)" src="https://github.com/user-attachments/assets/149884ac-4237-4168-9dd0-f4e6fa4c5227" />
+
 
